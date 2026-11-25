@@ -1,6 +1,3 @@
-// AI: Script utama portofolio mengikuti video referensi — Lenis + GSAP ScrollTrigger & Interactive Image Reveal JS murni //
-
-// HUMAN: Sesuaikan radius lensa reveal, penyelarasan foto belakang, dan durasi smooth scroll di sini //
 const KONFIG = {
   radiusRevealDesktop: 46, // Radius lensa reveal saat mouse bergerak di laptop/PC (px)
   radiusRevealMobile: 38, // Radius lensa reveal saat jari mengusap di smartphone (px)
@@ -18,11 +15,9 @@ const KONFIG = {
   tinggiHeader: 86, // Offset tinggi navbar pil mengambang (px)
 };
 
-// AI: Referensi global Lenis & fungsi buka tab Portfolio agar folder 3D bisa memanggilnya //
 let lenisInstance = null;
 let aktifkanTabPortfolio = null;
 
-// AI: Jalankan seluruh modul setelah dokumen HTML selesai dimuat //
 document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initInteractiveReveal();
@@ -34,13 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initFooterYear();
 });
 
-// AI: Segarkan perhitungan Lenis & ScrollTrigger setelah seluruh gambar dan font selesai dimuat //
 window.addEventListener("load", () => {
   segarkanScroll();
 });
 
 // ==================== 1. LENIS + SINKRONISASI GSAP ==================== //
-// AI: Mengaktifkan Lenis dan menyinkronkannya langsung dengan GSAP ScrollTrigger //
 function initSmoothScroll() {
   const kurangiGerakan = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const adaGSAP = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
@@ -73,7 +66,6 @@ function initSmoothScroll() {
   }
 }
 
-// AI: Menyegarkan ukuran dokumen Lenis dan posisi ScrollTrigger saat layout berubah //
 function segarkanScroll() {
   if (lenisInstance) {
     lenisInstance.resize();
@@ -84,7 +76,6 @@ function segarkanScroll() {
 }
 
 // ==================== 2. INTERACTIVE IMAGE REVEAL (JS MURNI) ==================== //
-// AI: Efek lensa reveal sementara real-time persis detik 00:05-00:11 (nol bekas permanen) //
 function initInteractiveReveal() {
   const container = document.getElementById("reveal-container");
   const fotoProfil = document.getElementById("foto-profil");
@@ -96,7 +87,6 @@ function initInteractiveReveal() {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
-  // AI: Tiga kanvas offscreen di memori untuk memadukan 2 PNG transparan secara bersih tanpa bocor di tepi //
   const sourceProfilCanvas = document.createElement("canvas");
   const sourceProfilCtx = sourceProfilCanvas.getContext("2d");
 
@@ -123,7 +113,6 @@ function initInteractiveReveal() {
   let jejak = [];
   const MAKS_JEJAK = 34;
 
-  // AI: Render gambar sesuai rasio CSS object-fit: cover + opsional transformasi penyelarasan presisi //
   function gambarDenganCover(targetCtx, img, lebar, tinggi, penyelarasan = null) {
     const rasioGambar = img.naturalWidth / img.naturalHeight;
     const rasioWadah = lebar / tinggi;
@@ -281,7 +270,6 @@ function initInteractiveReveal() {
     mulaiLoop();
   }
 
-  // AI: Menggambar lingkaran gradien lembut pada kanvas masker reveal //
   function gambarLingkaranMasker(targetCtx, x, y, radius, alpha) {
     if (radius <= 1 || alpha <= 0.01) return;
 
@@ -311,11 +299,9 @@ function initInteractiveReveal() {
 
     jejak = jejak.filter((titik) => waktuSekarang - titik.lahir < titik.masaHidup);
 
-    // AI: Selalu mulai dari foto depan (Habibi, S.Kom) secara utuh setiap frame agar nol bekas permanen //
     gambarLapisanPertamaPenuh();
 
     if (kekuatanLensa > 0.01 || jejak.length > 0) {
-      // AI: 1) Bangun masker lensa sementara pada kanvas offscreen //
       revealMaskCtx.save();
       revealMaskCtx.globalCompositeOperation = "source-over";
       revealMaskCtx.clearRect(0, 0, lebarCss, tinggiCss);
@@ -333,13 +319,11 @@ function initInteractiveReveal() {
         gambarLingkaranMasker(revealMaskCtx, lensaX, lensaY, radiusLensa, kekuatanLensa);
       }
 
-      // AI: 2) Kurangi area masker dari foto depan (Habibi, S.Kom) secara simetris //
       ctx.save();
       ctx.globalCompositeOperation = "destination-out";
       ctx.drawImage(revealMaskCanvas, 0, 0, lebarCss, tinggiCss);
       ctx.restore();
 
-      // AI: 3) Potong foto belakang (Petani) tepat mengikuti bentuk masker lalu padukan ke kanvas utama //
       revealMaskCtx.globalCompositeOperation = "source-in";
       revealMaskCtx.drawImage(sourceKarakterCanvas, 0, 0, lebarCss, tinggiCss);
       revealMaskCtx.restore();
@@ -383,7 +367,6 @@ function initInteractiveReveal() {
           canvas.setPointerCapture(e.pointerId);
         }
       } catch (_) {
-        // AI: Abaikan bila browser tidak mendukung pointer capture pada event ini //
       }
     }
 
@@ -425,7 +408,6 @@ function initInteractiveReveal() {
     { passive: false }
   );
 
-  // AI: Siapkan ulang kanvas setiap kali salah satu dari 2 foto PNG selesai dimuat //
   const cekDanSiapkan = () => siapkanKanvas();
   if (fotoProfil.complete) {
     siapkanKanvas();
@@ -455,7 +437,6 @@ function initInteractiveReveal() {
 }
 
 // ==================== 3. FLOATING PILL NAVBAR + MASKOT GESER ==================== //
-// AI: Menjalankan indikator biru meluncur, maskot mengikuti tab aktif, & tema gelap/putih //
 function initNavigation() {
   const header = document.getElementById("header");
   const navPill = document.getElementById("navbar-pill");
@@ -468,7 +449,6 @@ function initNavigation() {
   const semuaTautanAnchor = document.querySelectorAll('a[href^="#"]:not(#modal-demo)');
   const sections = document.querySelectorAll("main section[id]");
 
-  // AI: Geser pil biru dan maskot putih tepat ke posisi link yang sedang aktif //
   function posisikanMaskotDanPil(linkAktif) {
     if (!navPill || !navIndicator || !navMascot || !linkAktif) return;
     if (window.innerWidth <= 640) return;
@@ -516,7 +496,6 @@ function initNavigation() {
     });
   }
 
-  // AI: Scroll halus menggunakan Lenis untuk semua link internal //
   semuaTautanAnchor.forEach((link) => {
     link.addEventListener("click", (e) => {
       const targetId = link.getAttribute("href");
@@ -540,7 +519,6 @@ function initNavigation() {
     });
   });
 
-  // AI: Sesuaikan warna navbar (kaca gelap <-> kaca putih) saat memasuki zona putih //
   function perbaruiTemaNavbar() {
     if (!header || !zoneLight) return;
     const batas = zoneLight.getBoundingClientRect().top;
@@ -550,7 +528,6 @@ function initNavigation() {
   window.addEventListener("scroll", perbaruiTemaNavbar, { passive: true });
   perbaruiTemaNavbar();
 
-  // AI: Posisikan maskot pada tab aktif awal & saat ukuran layar berubah //
   const linkAwal = document.querySelector(".nav-link.active");
   if (linkAwal) {
     requestAnimationFrame(() => posisikanMaskotDanPil(linkAwal));
@@ -561,7 +538,6 @@ function initNavigation() {
     if (aktif) posisikanMaskotDanPil(aktif);
   });
 
-  // AI: Deteksi section aktif saat halaman digulir //
   const navIds = new Set(["home", "about", "portfolio", "contact"]);
   if (sections.length > 0) {
     const observerNav = new IntersectionObserver(
@@ -584,7 +560,6 @@ function initNavigation() {
 }
 
 // ==================== 4. ANIMASI SCROLL (GSAP + SCROLLTRIGGER) ==================== //
-// AI: Parallax Hero, reveal About, bar Skills, zoom PORTFOLIO, & kartu Contact //
 function initScrollAnimations() {
   const skillBars = document.querySelectorAll(".skill-progress");
 
@@ -602,7 +577,6 @@ function initScrollAnimations() {
     return;
   }
 
-  // AI: 1. Hero Parallax (00:00 - 00:02) — WELCOME TO MY PORTFOLIO muncul dari belakang sosok berdiri //
   gsap.from("#hero-welcome", {
     y: 42,
     opacity: 0,
@@ -647,7 +621,6 @@ function initScrollAnimations() {
     },
   });
 
-  // AI: 2. About Me stage & Education/Experience timeline //
   gsap.from(".about-main-title", {
     y: 28,
     opacity: 0,
@@ -677,7 +650,6 @@ function initScrollAnimations() {
     scrollTrigger: { trigger: ".timeline-grid", start: "top 84%", once: true },
   });
 
-  // AI: 3. Progress bar Core Skills //
   ScrollTrigger.create({
     trigger: "#skills",
     start: "top 82%",
@@ -693,7 +665,6 @@ function initScrollAnimations() {
     },
   });
 
-  // AI: 4. 3D Glass Folders entrance //
   gsap.from(".folder-card", {
     y: 34,
     opacity: 0,
@@ -704,7 +675,6 @@ function initScrollAnimations() {
     scrollTrigger: { trigger: ".folders-grid", start: "top 85%", once: true },
   });
 
-  // AI: 5. Zoom besar "PORTFOLIO" (00:25 - 00:27) saat beralih dari gelap ke putih //
   const bridgeTitle = document.getElementById("bridge-title");
   if (bridgeTitle) {
     gsap.fromTo(
@@ -724,7 +694,6 @@ function initScrollAnimations() {
     );
   }
 
-  // AI: 6. Kartu Contact muncul halus //
   gsap.from(".white-card", {
     y: 26,
     opacity: 0,
@@ -737,7 +706,6 @@ function initScrollAnimations() {
 }
 
 // ==================== 5. 3D FOLDERS, TAB PORTFOLIO & CAROUSEL ==================== //
-// AI: Menghubungkan klik Folder 3D -> Tab Portfolio serta tombol panah kiri/kanan carousel //
 function initFoldersAndPortfolio() {
   const tabBtns = document.querySelectorAll(".tab-btn");
   const tabPanels = document.querySelectorAll(".tab-panel");
@@ -800,7 +768,6 @@ function initFoldersAndPortfolio() {
     btn.addEventListener("click", () => bukaTab(btn.dataset.tab, false));
   });
 
-  // AI: Klik salah satu dari 3 Folder Kaca 3D langsung membuka tab terkait di Portfolio //
   folderCards.forEach((folder) => {
     folder.addEventListener("click", () => {
       const targetTab = folder.dataset.openTab || "projects";
@@ -808,7 +775,6 @@ function initFoldersAndPortfolio() {
     });
   });
 
-  // AI: Tombol panah kiri & kanan untuk menggeser kartu carousel //
   function geserCarousel(arah) {
     if (!viewport) return;
     const jarak = Math.max(280, viewport.clientWidth * 0.72);
@@ -820,7 +786,6 @@ function initFoldersAndPortfolio() {
 }
 
 // ==================== 6. MODAL DETAIL & VIEW CV ==================== //
-// AI: Menampilkan detail Proyek, Learning Journey, What I'm Exploring, dan ringkasan CV melalui modal pop-up //
 function initModalAndCV() {
   const modal = document.getElementById("project-modal");
   const backdrop = document.getElementById("modal-backdrop");
@@ -909,7 +874,6 @@ function initModalAndCV() {
     });
   });
 
-  // HUMAN: Ganti informasi ringkasan CV atau sambungkan ke file PDF CV milik kamu nanti //
   if (btnViewCV) {
     btnViewCV.addEventListener("click", () => {
       bukaModalUmum({
@@ -959,7 +923,6 @@ function initModalAndCV() {
 }
 
 // ==================== 7. FORM HUBUNGI (VALIDASI JUJUR) ==================== //
-// AI: Validasi formulir kontak tanpa mengklaim pesan terkirim sebelum ada backend //
 function initContactForm() {
   const form = document.getElementById("contact-form");
   const inputNama = document.getElementById("nama");
@@ -1026,7 +989,6 @@ function initContactForm() {
       return;
     }
 
-    // HUMAN: Hubungkan ke Formspree atau EmailJS bila nanti ingin pesan masuk ke email //
     const pengirim = inputNama.value.trim();
     formStatus.textContent = `Validasi berhasil, ${pengirim}. Formulir ini belum terhubung ke layanan email/backend, jadi pesan belum terkirim otomatis. Silakan hubungi langsung melalui Find Me di bawah.`;
     formStatus.className = "form-status info";
@@ -1034,7 +996,6 @@ function initContactForm() {
 }
 
 // ==================== 8. TAHUN OTOMATIS FOOTER ==================== //
-// AI: Menampilkan tahun saat ini secara otomatis di footer //
 function initFooterYear() {
   const elemenTahun = document.getElementById("tahun-sekarang");
   if (elemenTahun) {

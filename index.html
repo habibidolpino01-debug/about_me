@@ -2,37 +2,29 @@
 <html lang="id">
 
 <head>
-    <!-- AI: Pengaturan dasar dokumen HTML dan tampilan responsif -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
         content="Portofolio pribadi Habibi — pekerja keras, senang belajar hal baru, dan tertarik membangun website, tampilan antarmuka, serta pengelolaan data." />
 
-    <!-- HUMAN: Ganti judul tab browser sesuai nama kamu -->
     <title>Habibi | Portfolio</title>
 
-    <!-- AI: Memuat font modern Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
-    <!-- AI: CSS resmi Lenis agar smooth scrolling tidak bentrok dengan scroll bawaan browser -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.css" />
 
-    <!-- AI: Menghubungkan file CSS utama -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
     <!-- ==================== FLOATING PILL NAVBAR + MASKOT AKTIF ==================== -->
-    <!-- AI: Navbar pil mengambang seperti detik 00:00-00:41 dengan maskot yang berpindah di atas tab aktif -->
     <header class="header" id="header">
         <nav class="navbar-pill" id="navbar-pill" aria-label="Navigasi Utama">
-            <!-- HUMAN: Nama singkat khusus tampilan mobile -->
             <a href="#home" class="logo-mobile">Habibi<span>.</span></a>
 
-            <!-- AI: Tombol hamburger khusus smartphone -->
             <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Buka menu navigasi"
                 aria-expanded="false" aria-controls="nav-menu">
                 <span class="bar"></span>
@@ -40,7 +32,6 @@
                 <span class="bar"></span>
             </button>
 
-            <!-- AI: Maskot kecil putih mengintip tepat di atas pil menu aktif -->
             <span class="nav-mascot" id="nav-mascot" aria-hidden="true">
                 <svg viewBox="0 0 36 32" width="32" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="18" cy="14" r="12" fill="#ffffff" />
@@ -53,10 +44,8 @@
                 </svg>
             </span>
 
-            <!-- AI: Indikator pil biru elektrik yang meluncur mulus ke tab aktif -->
             <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
 
-            <!-- AI: 4 menu utama persis seperti video referensi -->
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -67,38 +56,31 @@
     </header>
 
     <main>
-        <!-- ==================== 1. HOME — HERO PARALLAX GUNUNG (00:00 - 00:02) ==================== -->
+        <!-- ==================== 1. HOME — HERO PARALLAX ==================== -->
         <section class="hero-cinema" id="home">
-            <!-- HUMAN: Foto latar utama Home (Gerbang Universitas Annuqayah) -->
             <img src="gambar/hero-bg.jpg" alt="Gerbang Universitas Annuqayah" class="hero-bg-img" id="hero-bg-img" />
 
-            <!-- AI: Lapisan judul besar di BELAKANG sosok berdiri untuk efek kedalaman parallax -->
             <div class="hero-welcome-wrap" id="hero-welcome-wrap">
-                <!-- HUMAN: Kalimat singkat yang menggambarkan karakter kerja dan belajar kamu -->
                 <p class="hero-tagline">Bekerja keras, terus belajar, dan membangun solusi lewat praktik nyata.</p>
                 <h1 class="hero-welcome" id="hero-welcome">
                     WORK HARD.<br />LEARN &amp; BUILD.
                 </h1>
             </div>
 
-            <!-- HUMAN: Ganti gambar/hero-person.png dengan foto PNG tanpa background (sosok berdiri menghadap pemandangan) -->
             <img src="gambar/image.png" alt="Sosok Habibi berdiri menghadap gunung" class="hero-person-img"
                 id="hero-person-img" />
 
-            <!-- AI: Gradasi transisi gelap mulus ke bagian About Me -->
             <div class="hero-bottom-fade" aria-hidden="true"></div>
         </section>
 
         <!-- ==================== ZONA HITAM NETRAL BERGARIS TOPOGRAFI ==================== -->
         <div class="zone-dark" id="zone-dark">
-            <!-- ==================== 2. ABOUT ME + SPIDER-MAN REVEAL (00:03 - 00:24) ==================== -->
+            <!-- ==================== 2. ABOUT ME & INTERACTIVE REVEAL ==================== -->
             <section class="about-section section" id="about">
                 <div class="container">
                     <h2 class="about-main-title">About Me</h2>
 
-                    <!-- AI: Panggung 3 kolom persis detik 00:05-00:12 (Kiri: Nama, Tengah: Foto Reveal, Kanan: Bio) -->
                     <div class="about-stage">
-                        <!-- HUMAN: Sisi kiri — sapaan, nama lengkap, dan tombol View CV -->
                         <div class="about-left">
                             <p class="hi-label">Hi, I'm</p>
                             <h3 class="about-name">Habibi</h3>
@@ -108,24 +90,19 @@
                             </button>
                         </div>
 
-                        <!-- AI: Fokus TENGAH — Interactive Image Reveal 2 lapisan PNG transparan (HABIBI, S.Kom -> Petani) -->
                         <div class="about-center">
                             <div class="reveal-container" id="reveal-container" role="img"
                                 aria-label="Foto profil Habibi, S.Kom">
-                                <!-- HUMAN: Gambar kedua (lapisan belakang — foto petani PNG transparan asli) -->
                                 <img src="gambar/karakter.png" alt="Habibi - Foto Petani" id="foto-karakter"
                                     class="reveal-img reveal-bottom" draggable="false" />
 
-                                <!-- HUMAN: Gambar pertama (lapisan depan / tampilan utama — foto Habibi, S.Kom PNG transparan asli) -->
                                 <img src="gambar/profil.png" alt="Habibi, S.Kom" id="foto-profil"
                                     class="reveal-img reveal-top" draggable="false" />
 
-                                <!-- AI: Kanvas JS murni untuk efek lensa reveal sementara mengikuti gerakan mouse/jari -->
                                 <canvas id="reveal-canvas" class="reveal-canvas"></canvas>
                             </div>
                         </div>
 
-                        <!-- HUMAN: Sisi kanan — paragraf perkenalan dan tombol View Projects -->
                         <div class="about-right">
                             <p class="about-bio">
                                 Saya mahasiswa yang terbiasa membagi waktu antara kuliah dan pekerjaan. Dari situ saya
@@ -140,9 +117,8 @@
                         </div>
                     </div>
 
-                    <!-- ==================== EDUCATION & EXPERIENCE (00:13 - 00:19) ==================== -->
+                    <!-- ==================== EDUCATION & EXPERIENCE ==================== -->
                     <div class="timeline-grid" id="education">
-                        <!-- HUMAN: Kolom kiri — Riwayat Pendidikan (4 jenjang terbaru paling atas) -->
                         <div class="timeline-col">
                             <h3 class="timeline-heading">Education</h3>
                             <div class="timeline-list">
@@ -238,7 +214,6 @@
                             </div>
                         </div>
 
-                        <!-- HUMAN: Kolom kanan — Pengalaman Pribadi (dapat digulir halus seperti detik 00:14-00:18) -->
                         <div class="timeline-col">
                             <h3 class="timeline-heading">Experience</h3>
                             <div class="timeline-scroll-wrap" data-lenis-prevent>
@@ -336,7 +311,6 @@
                     </div>
 
                     <!-- ==================== SKILLS & CAPABILITIES ==================== -->
-                    <!-- HUMAN: Kartu pertama untuk kemampuan yang sudah dipraktikkan, kartu kedua untuk yang sedang dikembangkan -->
                     <div class="skills-band" id="skills">
                         <div class="skills-band-head">
                             <h3>Skills &amp; Capabilities</h3>
@@ -408,8 +382,7 @@
                         </div>
                     </div>
 
-                    <!-- ==================== 3 INTERACTIVE 3D GLASS FOLDERS (00:20 - 00:24) ==================== -->
-                    <!-- AI: Tiga folder kaca 3D interaktif yang mengipas saat dihover dan membuka tab Portfolio saat diklik -->
+                    <!-- ==================== 3D GLASS FOLDERS ==================== -->
                     <div class="folders-grid"
                         aria-label="Ringkasan Karya dan Perjalanan Belajar dalam Folder Interaktif">
                         <button type="button" class="folder-card" data-open-tab="projects">
@@ -462,19 +435,17 @@
                 </div>
             </section>
 
-            <!-- ==================== TRANSISI ZOOM "PORTFOLIO" (00:25 - 00:27) ==================== -->
-            <!-- AI: Jembatan tipografi besar yang membesar saat di-scroll menuju zona putih bersih -->
+            <!-- ==================== TRANSISI "PORTFOLIO" ==================== -->
             <div class="theme-bridge" id="theme-bridge" aria-hidden="true">
                 <p class="bridge-title" id="bridge-title">PORTFOLIO</p>
             </div>
         </div>
 
-        <!-- ==================== ZONA PUTIH BERSIH BERGARIS TOPOGRAFI (00:27 - 00:41) ==================== -->
+        <!-- ==================== ZONA PUTIH BERGARIS TOPOGRAFI ==================== -->
         <div class="zone-light" id="zone-light">
-            <!-- ==================== 3. PORTFOLIO TABS & CAROUSEL (00:27 - 00:34) ==================== -->
+            <!-- ==================== 3. PORTFOLIO TABS & CAROUSEL ==================== -->
             <section class="portfolio-section section" id="portfolio">
                 <div class="container">
-                    <!-- AI: Tab pil putih (Projects, Learning Journey, What I'm Exploring) -->
                     <div class="portfolio-tabs-wrap">
                         <div class="portfolio-tabs" role="tablist" aria-label="Kategori Portfolio">
                             <button type="button" class="tab-btn active" role="tab" aria-selected="true"
@@ -493,7 +464,6 @@
                         </div>
                     </div>
 
-                    <!-- AI: Wadah carousel horizontal dengan tombol panah biru kiri & kanan seperti detik 00:28-00:33 -->
                     <div class="carousel-shell">
                         <button type="button" class="carousel-arrow arrow-prev" id="carousel-prev"
                             aria-label="Geser ke kiri">&larr;</button>
@@ -501,7 +471,6 @@
                         <div class="carousel-viewport" id="carousel-viewport">
                             <!-- ===== PANEL 1: PROJECTS ===== -->
                             <div class="tab-panel active" id="panel-projects" data-panel="projects">
-                                <!-- HUMAN: Proyek 1 — Website Portofolio Pribadi (nyata & aktif) -->
                                 <article class="showcase-card" data-judul="Personal Portfolio Website"
                                     data-deskripsi="Tujuan: Memperkenalkan profil, latar pendidikan, proses belajar, dan karya secara personal namun tetap rapi. Kontribusi: Menyusun konten, tata letak responsif, efek Interactive Image Reveal berbasis Canvas, serta integrasi animasi scroll. Status: Aktif digunakan dan terus diperbarui."
                                     data-meta="HTML, CSS, JavaScript (Canvas), GSAP, Lenis • Status: Aktif"
@@ -518,18 +487,17 @@
                                     </div>
                                 </article>
 
-                                <!-- HUMAN: Proyek 2 — Nasi Goreng Nazra (silakan lengkapi detail fitur & teknologi yang digunakan) -->
                                 <article class="showcase-card" data-judul="Website Nasi Goreng Nazra"
-                                    data-deskripsi="Tujuan: Membantu menghadirkan informasi usaha kuliner Nasi Goreng Nazra secara online agar lebih mudah ditemukan dan diakses pelanggan. Kontribusi: Perancangan tampilan dan pengembangan website (silakan sesuaikan bagian spesifik yang kamu kerjakan). Status: Dalam pengembangan — detail fitur dan teknologi siap dilengkapi sesuai proyek aslinya."
-                                    data-meta="Status: Dalam Pengembangan • Teknologi: [Perlu konfirmasi sesuai pengerjaan asli]"
+                                    data-deskripsi="Tujuan: Memudahkan pelanggan melihat daftar menu, harga, informasi jam operasional (16.00–00.00 WIB), serta memilih pesanan secara online. Fitur yang ditampilkan mencakup halaman Beranda, Menu per kategori, Tentang, Bantuan, dan fitur keranjang belanja (+ Tambah). Status: Dalam pengembangan (repositori private)."
+                                    data-meta="Katalog Menu, Info Jam Operasional & Keranjang Pesanan • Status: Dalam Pengembangan (Private Repo)"
                                     data-demo="#" data-kode="#">
                                     <div class="showcase-thumb">
-                                        <img src="gambar/proyek-2.jpg" alt="Pratinjau Website Nasi Goreng Nazra" />
+                                        <img src="gambar/proyek-2.jpg" alt="Tampilan Website Nasi Goreng Nazra" />
                                     </div>
                                     <div class="showcase-body">
                                         <h3>Website Nasi Goreng Nazra</h3>
-                                        <p>Proyek pengembangan website untuk usaha kuliner Nasi Goreng Nazra. Detail
-                                            fitur dan teknologi siap disesuaikan dengan pengerjaan asli.</p>
+                                        <p>Website katalog dan pemesanan untuk usaha kuliner Nasi Goreng Nazra dengan
+                                            daftar menu per kategori, info jam operasional, dan fitur keranjang.</p>
                                         <button type="button" class="btn-video btn-sm btn-detail">Details
                                             &rarr;</button>
                                     </div>
@@ -538,7 +506,6 @@
 
                             <!-- ===== PANEL 2: LEARNING JOURNEY ===== -->
                             <div class="tab-panel" id="panel-learning" data-panel="learning">
-                                <!-- HUMAN: Topik belajar 1 -->
                                 <article class="showcase-card cert-card" data-judul="Pengembangan Web & JavaScript"
                                     data-deskripsi="Sedang memperdalam HTML, CSS responsif, dan JavaScript untuk membangun interaksi halaman web, validasi input, serta tampilan yang rapi di laptop maupun smartphone melalui praktik proyek langsung."
                                     data-meta="Learning Journey • Sedang Diperdalam: HTML, CSS, JavaScript"
@@ -558,7 +525,6 @@
                                     </div>
                                 </article>
 
-                                <!-- HUMAN: Topik belajar 2 -->
                                 <article class="showcase-card cert-card" data-judul="Database Management"
                                     data-deskripsi="Mempelajari cara merancang struktur tabel, mengatur relasi antardata, serta memahami alur penyimpanan dan pengelolaan data agar aplikasi web dapat bekerja secara tertata."
                                     data-meta="Learning Journey • Sedang Dipelajari: Perancangan & Pengelolaan Database"
@@ -577,7 +543,6 @@
                                     </div>
                                 </article>
 
-                                <!-- HUMAN: Topik belajar 3 -->
                                 <article class="showcase-card cert-card" data-judul="System Design & Alur Aplikasi"
                                     data-deskripsi="Melatih cara memetakan masalah terlebih dahulu, merancang alur pengguna dan aliran data, lalu menerjemahkannya ke dalam rancangan sistem yang sederhana dan mudah dijalankan."
                                     data-meta="Learning Journey • Sedang Dipelajari: System Design & Problem Solving"
@@ -600,7 +565,6 @@
 
                             <!-- ===== PANEL 3: WHAT I'M EXPLORING ===== -->
                             <div class="tab-panel" id="panel-exploring" data-panel="exploring">
-                                <!-- HUMAN: Eksplorasi 1 -->
                                 <article class="showcase-card cert-card" data-judul="UI/UX & Perancangan Website"
                                     data-deskripsi="Mengeksplorasi prinsip tata letak, hierarki informasi, dan kenyamanan navigasi agar tampilan website terasa bersih, mudah dipahami, dan nyaman dipakai di berbagai ukuran layar."
                                     data-meta="What I'm Exploring • Fokus: Web Design & UI/UX Design" data-demo="#"
@@ -619,7 +583,6 @@
                                     </div>
                                 </article>
 
-                                <!-- HUMAN: Eksplorasi 2 -->
                                 <article class="showcase-card cert-card" data-judul="Proyek Web untuk Masalah Nyata"
                                     data-deskripsi="Tertarik menerapkan ilmu desain web, pengembangan, dan database pada kebutuhan sehari-hari—mulai dari website usaha lokal hingga alat bantu pencatatan yang benar-benar terpakai."
                                     data-meta="What I'm Exploring • Fokus: Praktik Proyek & Solusi Nyata" data-demo="#"
@@ -638,7 +601,6 @@
                                     </div>
                                 </article>
 
-                                <!-- HUMAN: Eksplorasi 3 -->
                                 <article class="showcase-card cert-card" data-judul="Belajar Lewat Praktik & Pengalaman"
                                     data-deskripsi="Membiasakan diri membagi waktu antara pekerjaan dan pendidikan sambil terus mengembangkan kemampuan teknis secara bertahap lewat proyek nyata dan evaluasi hasil kerja."
                                     data-meta="What I'm Exploring • Fokus: Learning & Adaptability, Etos Kerja"
@@ -666,13 +628,12 @@
                 </div>
             </section>
 
-            <!-- ==================== 4. CONTACT: HUBUNGI, FIND ME & KOMENTAR (00:36 - 00:41) ==================== -->
+            <!-- ==================== 4. CONTACT: HUBUNGI, FIND ME & INFO SINGKAT ==================== -->
             <section class="contact-section section" id="contact">
                 <div class="container">
                     <div class="contact-layout">
-                        <!-- KOLOM KIRI: Hubungi + Find Me (persis detik 00:37-00:38) -->
+                        <!-- KOLOM KIRI: Hubungi + Find Me -->
                         <div class="contact-left">
-                            <!-- AI: Kartu Form Hubungi dengan validasi jujur -->
                             <form class="white-card contact-form" id="contact-form" novalidate>
                                 <h3>Hubungi</h3>
                                 <p class="card-sub">Ada yang mau didiskusikan? Langsung kirim pesan aja ya!</p>
@@ -700,7 +661,6 @@
                                 <p class="form-status" id="form-status" aria-live="polite"></p>
                             </form>
 
-                            <!-- HUMAN: Kartu Find Me — ganti tautan dengan profil sosial milik kamu -->
                             <div class="white-card find-me-card">
                                 <h3>Find Me</h3>
                                 <ul class="social-list">
@@ -743,7 +703,6 @@
 
                         <!-- KOLOM KANAN: Info Singkat & Ajakan Diskusi -->
                         <div class="contact-right">
-                            <!-- HUMAN: Kartu Info Singkat — sesuaikan lokasi, aktivitas, dan kontak tercepat kamu -->
                             <div class="white-card info-card">
                                 <h3>Info Singkat</h3>
                                 <p class="card-sub">Sekilas informasi domisili, aktivitas saat ini, dan cara tercepat
@@ -784,7 +743,6 @@
                                 </ul>
                             </div>
 
-                            <!-- HUMAN: Kartu Ajakan Diskusi — topik yang terbuka untuk dibicarakan bersama -->
                             <div class="white-card collab-card">
                                 <div class="collab-head">
                                     <h3>Ajakan Diskusi</h3>
@@ -809,17 +767,15 @@
                 </div>
             </section>
 
-            <!-- ==================== FOOTER (00:40) ==================== -->
+            <!-- ==================== FOOTER ==================== -->
             <footer class="footer">
                 <div class="container footer-inner">
-                    <!-- HUMAN: Ganti nama di hak cipta -->
                     <p>&copy; <span id="tahun-sekarang">2026</span> Habibi. All Rights Reserved.</p>
                 </div>
             </footer>
         </div>
     </main>
 
-    <!-- AI: Modal pop-up pratinjau Proyek, Learning Journey, What I'm Exploring, dan ringkasan CV -->
     <div class="modal" id="project-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
         <div class="modal-backdrop" id="modal-backdrop"></div>
         <div class="modal-content" data-lenis-prevent>
@@ -837,12 +793,10 @@
         </div>
     </div>
 
-    <!-- AI: Library Lenis (Smooth Scroll) & GSAP + ScrollTrigger via CDN jsDelivr -->
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
 
-    <!-- AI: Menghubungkan file JavaScript utama -->
     <script src="js/script.js"></script>
 </body>
 

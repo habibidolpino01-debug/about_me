@@ -1,5 +1,4 @@
 /* ==================== 1. VARIABEL TEMA & RESET ==================== */
-/* HUMAN: Ubah warna dasar gelap netral, putih bersih, dan aksen biru elektrik di blok :root ini */
 :root {
   --dark-bg: #050608;
   --dark-card: #0e1015;
@@ -26,7 +25,6 @@
   --transisi: 0.28s ease;
 }
 
-/* AI: Reset dasar agar tampilan konsisten di semua browser */
 *,
 *::before,
 *::after {
@@ -35,7 +33,6 @@
   padding: 0;
 }
 
-/* AI: Gunakan scroll-behavior auto agar tidak bentrok dengan Lenis */
 html {
   scroll-behavior: auto;
   scroll-padding-top: 90px;
@@ -101,7 +98,6 @@ textarea:focus-visible {
 }
 
 /* ==================== 2. TOMBOL & UTILITAS ==================== */
-/* AI: Tombol biru elektrik ala video referensi */
 .btn-video {
   display: inline-flex;
   align-items: center;
@@ -168,7 +164,6 @@ textarea:focus-visible {
 }
 
 /* ==================== 3. FLOATING PILL NAVBAR + MASKOT AKTIF ==================== */
-/* AI: Navbar pil mengambang dengan indikator geser & maskot putih di atas tab aktif (00:00-00:41) */
 .header {
   position: fixed;
   top: 22px;
@@ -200,7 +195,6 @@ textarea:focus-visible {
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
 }
 
-/* AI: Maskot putih kecil yang bergeser mulus mengikuti menu aktif */
 .nav-mascot {
   position: absolute;
   top: -21px;
@@ -226,7 +220,6 @@ textarea:focus-visible {
   }
 }
 
-/* AI: Pil biru elektrik yang meluncur mulus di belakang link aktif */
 .nav-indicator {
   position: absolute;
   top: 6px;
@@ -291,7 +284,6 @@ textarea:focus-visible {
   color: #ffffff;
 }
 
-/* AI: Tombol hamburger untuk smartphone */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -334,8 +326,7 @@ textarea:focus-visible {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ==================== 4. HOME — HERO PARALLAX GUNUNG (00:00 - 00:02) ==================== */
-/* AI: Pembuka layar penuh dengan lapisan: latar gunung -> teks WELCOME -> sosok berdiri di depan */
+/* ==================== 4. HOME — HERO PARALLAX ==================== */
 .hero-cinema {
   position: relative;
   height: 100vh;
@@ -358,7 +349,6 @@ textarea:focus-visible {
   will-change: transform;
 }
 
-/* AI: Judul besar di belakang sosok berdiri agar tercipta efek kedalaman seperti detik 00:02 */
 .hero-welcome-wrap {
   position: relative;
   z-index: 2;
@@ -368,7 +358,6 @@ textarea:focus-visible {
   will-change: transform, opacity;
 }
 
-/* AI: Deskripsi singkat karakter diri tepat di atas judul utama Hero */
 .hero-tagline {
   max-width: 660px;
   margin: 0 auto 0.9rem;
@@ -392,7 +381,6 @@ textarea:focus-visible {
   user-select: none;
 }
 
-/* AI: Sosok berdiri di depan teks WELCOME TO MY PORTFOLIO dengan proporsi & pencahayaan menyatu */
 .hero-person-img {
   position: absolute;
   bottom: -14vh;
@@ -419,7 +407,6 @@ textarea:focus-visible {
 }
 
 /* ==================== 5. ZONA TOPOGRAFI GELAP & PUTIH ==================== */
-/* AI: Latar hitam netral dengan pola kontur topografi putih tipis (00:04-00:26) */
 .zone-dark {
   background-color: var(--dark-bg);
   color: var(--dark-text);
@@ -427,7 +414,6 @@ textarea:focus-visible {
   background-size: 640px 640px;
 }
 
-/* AI: Latar putih bersih dengan kontur topografi abu lembut (00:27-00:41) */
 .zone-light {
   background-color: var(--light-bg);
   color: var(--light-text);
@@ -435,7 +421,7 @@ textarea:focus-visible {
   background-size: 640px 640px;
 }
 
-/* ==================== 6. ABOUT ME & SPIDER-MAN REVEAL (00:04 - 00:12) ==================== */
+/* ==================== 6. ABOUT ME & INTERACTIVE REVEAL ==================== */
 .about-section {
   padding-top: 6rem;
 }
@@ -449,7 +435,6 @@ textarea:focus-visible {
   margin-bottom: 3rem;
 }
 
-/* AI: Layout 3 bagian persis video: Kiri nama, Tengah foto berdiri reveal, Kanan bio */
 .about-stage {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) auto minmax(240px, 1fr);
@@ -496,7 +481,6 @@ textarea:focus-visible {
   margin-bottom: 1.5rem;
 }
 
-/* AI: Wadah foto berdiri di tengah yang menyatu halus di bagian bawah (tanpa kotak berat) */
 .about-center {
   display: flex;
   justify-content: center;
@@ -543,7 +527,6 @@ textarea:focus-visible {
   transition: opacity 0.25s ease;
 }
 
-/* AI: Setelah kanvas siap, sembunyikan kedua elemen img HTML agar compositing 2 PNG transparan 100% dikontrol kanvas */
 .reveal-container.canvas-ready .reveal-top,
 .reveal-container.canvas-ready .reveal-bottom {
   opacity: 0;
@@ -560,8 +543,7 @@ textarea:focus-visible {
   touch-action: none;
 }
 
-/* ==================== 7. EDUCATION & EXPERIENCE TIMELINE (00:13 - 00:19) ==================== */
-/* AI: Dua kolom timeline gelap seperti detik 00:13-00:19 di video */
+/* ==================== 7. EDUCATION & EXPERIENCE TIMELINE ==================== */
 .timeline-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -793,7 +775,6 @@ textarea:focus-visible {
   overflow: hidden;
 }
 
-/* AI: Tanpa CSS transition width agar animasi GSAP ScrollTrigger berjalan mulus */
 .skill-progress {
   width: 0;
   height: 100%;
@@ -801,8 +782,7 @@ textarea:focus-visible {
   background: var(--gradasi-biru);
 }
 
-/* ==================== 9. 3 INTERACTIVE 3D GLASS FOLDERS (00:20 - 00:24) ==================== */
-/* AI: Tiga folder kaca 3D gelap persis detik 00:20-00:24 yang mengipas saat dihover */
+/* ==================== 9. 3D GLASS FOLDERS ==================== */
 .folders-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -823,7 +803,6 @@ textarea:focus-visible {
   text-align: left;
 }
 
-/* AI: Bagian belakang folder + lidah tab di kiri atas */
 .folder-back {
   position: absolute;
   inset: 22px 0 0 0;
@@ -846,7 +825,6 @@ textarea:focus-visible {
   border-bottom: none;
 }
 
-/* AI: Tiga kartu pratinjau di dalam folder yang menyebar keluar saat hover */
 .folder-papers {
   position: absolute;
   inset: 28px 14px 20px 14px;
@@ -898,7 +876,6 @@ textarea:focus-visible {
   transform: translate(-30%, -62px) rotate(13deg) scale(1.03);
 }
 
-/* AI: Penutup depan folder kaca buram 3D yang membuka miring ke depan saat hover */
 .folder-front {
   position: absolute;
   left: 0;
@@ -954,7 +931,7 @@ textarea:focus-visible {
   background-color: rgba(255, 255, 255, 0.06);
 }
 
-/* ==================== 10. TRANSISI ZOOM "PORTFOLIO" (00:25 - 00:27) ==================== */
+/* ==================== 10. TRANSISI "PORTFOLIO" ==================== */
 .theme-bridge {
   position: relative;
   min-height: 52vh;
@@ -977,7 +954,7 @@ textarea:focus-visible {
   will-change: transform, opacity;
 }
 
-/* ==================== 11. PORTFOLIO TABS & CAROUSEL PUTIH (00:27 - 00:34) ==================== */
+/* ==================== 11. PORTFOLIO TABS & CAROUSEL ==================== */
 .portfolio-section {
   padding-top: 4.5rem;
   padding-bottom: 3rem;
@@ -989,7 +966,6 @@ textarea:focus-visible {
   margin-bottom: 2.8rem;
 }
 
-/* AI: Tab pil putih persis detik 00:28 */
 .portfolio-tabs {
   display: inline-flex;
   align-items: center;
@@ -1036,7 +1012,6 @@ textarea:focus-visible {
   box-shadow: 0 10px 24px rgba(37, 99, 235, 0.34);
 }
 
-/* AI: Carousel horizontal dengan tombol panah biru di sisi kiri dan kanan */
 .carousel-shell {
   position: relative;
   display: flex;
@@ -1067,7 +1042,6 @@ textarea:focus-visible {
   grid-auto-columns: calc((100% - 3rem) / 3);
 }
 
-/* AI: Panel Projects berisi 2 kartu agar terbagi simetris rata kiri-kanan memenuhi wadah */
 #panel-projects.active {
   grid-auto-columns: calc((100% - 1.5rem) / 2);
 }
@@ -1110,7 +1084,6 @@ textarea:focus-visible {
   right: -18px;
 }
 
-/* AI: Kartu Proyek, Sertifikat, & Award putih bersih */
 .showcase-card {
   scroll-snap-align: start;
   background-color: #ffffff;
@@ -1151,7 +1124,6 @@ textarea:focus-visible {
   transform: scale(1.05);
 }
 
-/* AI: Overlay tombol View Certificate / Award saat hover seperti detik 00:31-00:33 */
 .cert-overlay {
   position: absolute;
   inset: 0;
@@ -1198,7 +1170,7 @@ textarea:focus-visible {
   align-self: flex-start;
 }
 
-/* ==================== 12. CONTACT: HUBUNGI, FIND ME & KOMENTAR (00:36 - 00:41) ==================== */
+/* ==================== 12. CONTACT: HUBUNGI, FIND ME & INFO SINGKAT ==================== */
 .contact-section {
   padding-top: 2.5rem;
   padding-bottom: 5rem;
@@ -1317,7 +1289,6 @@ textarea:focus-visible {
   color: var(--aksen-error);
 }
 
-/* AI: Kartu Find Me sosial media seperti detik 00:38 */
 .social-list {
   display: grid;
   gap: 0.75rem;
@@ -1388,7 +1359,6 @@ textarea:focus-visible {
   font-size: 1rem;
 }
 
-/* AI: Kartu Info Singkat & Ajakan Diskusi di kolom kanan Contact (serasi dengan .white-card) */
 .info-list {
   display: grid;
   gap: 0.8rem;
